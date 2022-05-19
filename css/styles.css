@@ -1,0 +1,217 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-cards {
+  width: 90%;
+  margin: 1% auto;
+  padding: 1%;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-arround;
+}
+.container-cards .container-cards__card {
+  width: 15em;
+  border-radius: 10px;
+  border: 2px solid rgb(26, 10, 75);
+  padding: 1%;
+  background-color: rgb(115, 190, 219);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+.container-cards .container-cards__card button {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: rgb(145, 129, 190);
+  text-align: center;
+  cursor: pointer;
+  width: 8em;
+}
+
+.filter-cards {
+  width: 90%;
+  margin: 1% auto;
+  padding: 1%;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.filter-cards form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.filter-cards form select, .filter-cards .form--create--edit form label, .form--create--edit .filter-cards form label, .filter-cards form option {
+  width: 15%;
+  padding: 0.6em;
+  margin-right: 1%;
+}
+.filter-cards form #search {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: rgb(145, 129, 190);
+  text-align: center;
+  cursor: pointer;
+}
+.filter-cards form #search:hover {
+  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+}
+.filter-cards form #searchClear {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: lightpink;
+  text-align: center;
+  cursor: pointer;
+}
+.filter-cards form #searchClear:hover {
+  box-shadow: 2px 1px 12px 3px lightpink;
+}
+
+footer {
+  width: 100%;
+  background-color: rgb(67, 10, 223);
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.form--create--edit {
+  width: 70%;
+  margin: 1% auto;
+  padding: 1%;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  text-align: left;
+}
+.form--create--edit form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form--create--edit form select, .form--create--edit form label, .form--create--edit form input, .form--create--edit form option {
+  padding: 0.5em;
+  height: 3em;
+  margin: 1%;
+}
+.form--create--edit form label {
+  height: 1em;
+}
+.form--create--edit form textarea {
+  margin: 1%;
+}
+.form--create--edit form .btnSubmit {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: rgb(145, 129, 190);
+  text-align: center;
+  cursor: pointer;
+}
+.form--create--edit form .btnCancelar {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: lightpink;
+  text-align: center;
+  cursor: pointer;
+}
+
+nav {
+  width: 100%;
+  background-color: rgb(67, 10, 223);
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+nav img {
+  width: 5%;
+  margin: 0.5%;
+}
+nav ul {
+  list-style: none;
+  width: 50%;
+}
+nav ul li {
+  display: inline;
+}
+nav ul a {
+  text-decoration: none;
+  color: rgb(145, 129, 190);
+  padding: 0.9%;
+}
+nav ul a:hover {
+  background-color: rgb(26, 10, 75);
+  border-radius: 8px;
+}
+
+.container-cards__details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  margin: 1% auto;
+  border-radius: 10px;
+  border: 2px solid rgb(26, 10, 75);
+  padding: 1%;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+.container-cards__details .div-img {
+  flex-basis: 1;
+}
+.container-cards__details .div-img img {
+  margin-top: 50%;
+}
+.container-cards__details .div-details {
+  flex-basis: 2;
+  padding: 3%;
+}
+.container-cards__details .div-details .edit {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: rgb(135, 223, 135);
+  text-align: center;
+  cursor: pointer;
+  width: 8em;
+}
+.container-cards__details .div-details .delete {
+  padding: 0.8em;
+  margin: 1em 1em;
+  width: 6em;
+  border-radius: 5px;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+  width: 8em;
+}
+.container-cards__details .div-details p {
+  margin: 2%;
+}
+.container-cards__details .div-details span {
+  margin: 0.5%;
+  padding: 0.7%;
+  border-radius: 10px;
+  background-color: lightpink;
+}
+
+/*# sourceMappingURL=styles.css.map */

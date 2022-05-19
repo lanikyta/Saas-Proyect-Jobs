@@ -1,0 +1,27 @@
+nav{
+    @include format_nav();
+    @include flex_box($direction: row, $align: left);
+    align-items: center;
+    img{
+        width: 5%;
+        margin: 0.5%;
+    }
+    ul{
+        list-style: none;
+        width: 50%;
+        li{
+            display: inline;
+        }
+        a{
+            text-decoration: none;
+            color: $primary--color--light;
+            padding: 0.9%;
+            
+        }
+        a:hover{
+            background-color: $secondary--color--dark;
+            border-radius: 8px;
+        }
+        
+    }
+}

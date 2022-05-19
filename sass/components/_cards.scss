@@ -1,0 +1,16 @@
+.container-cards{
+    @include format_box();
+    @include flex_box($direction: row, $align: space-arround);
+    .container-cards__card{
+        width: 15em;
+        border-radius: 10px;
+        border: 2px solid $secondary--color--dark;
+        padding: 1%;
+        background-color: $secondary--color--light;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+        button{
+            @include button($color: $primary--color--light);
+            width: 8em;
+        }
+    }
+}
