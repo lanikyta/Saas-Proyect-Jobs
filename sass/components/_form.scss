@@ -1,0 +1,25 @@
+.form--create--edit{
+    @include format_box($width: 70%);
+    text-align: left;
+    form{
+        @include flex_box($direction: column, $align: center);
+        select, input, option{
+            padding: 0.5em;
+            height: 3em;
+            margin: 1%;
+        }
+        label{
+            @extend select;
+            height: 1em;
+        }
+        textarea{
+            margin: 1%;
+        }
+        .btnSubmit{
+            @include button($color: $primary--color--light)
+        }
+        .btnCancelar{
+            @include button($color: $danger--color--light)
+        }
+    }    
+}
