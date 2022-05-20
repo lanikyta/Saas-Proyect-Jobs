@@ -11,17 +11,16 @@
             <nav>
                 <img src="" alt="logo">
                 <ul>
-                    <li><a href="#">Carrers</a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Create a Job</a></li>
+                    <li><a href="#" id="home">Home</a></li>
+                    <li><a href="#" id="createJob">Create a Job</a></li>
                 </ul>
             </nav>
         </header>
         <section class="first-section">
             <div class="filter-cards">
                 <form>
-                    <select id="location">
-                          <option selected>Location</option>
+                    <select id="country">
+                          <option selected>Country</option>
                           <option value="">Arg</option>
                           <option value="">Col</option>
                           <option value="">Chile</option>
@@ -48,12 +47,12 @@
                     <button id="searchClear">Clear</button>
                 </form>
             </div>
-            <div class="container-cards">
+            <div class="container-cards" id="container-cards">
                 <div class="container-cards__card">
-                    <img src="./assets/4.svg" alt="imagenrandom" width="100%">
+                    <img src="./assets/4.svg" alt="imagenrandom" width="80%">
                     <h2>Job Title</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit atque officiis fuga eum, aliquid, nobis nihil esse veniam similique.</p>
-                    <p class="tags"><span class="tag1"></span><span class="tag2"></span><span class="tag3"></span>
+                    <p><span id="tag1">perro</span> <span id="tag2">gato</span> <span id="tag3">banana</span>
                     </p>
                     <button>See Details</button>
                 </div>
@@ -63,18 +62,18 @@
                     </div>
                     <div class="div-details">
                         <h2>Job Title</h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit atque officiis fuga eum, aliquid, nobis nihil esse veniam similique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed error tempore aut accusantium expedita. Magni recusandae quo sapiente similique aliquam perspiciatis omnis. Hic quod repellat veniam id fuga voluptatum ut!</p>
-                        <p class="tags"><span class="tag1">PERRO</span> <span class="tag2">GATO</span> <span class="tag3">MANZANA</span>
-                        </p>
+                        <p><span>Description:</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit atque officiis fuga eum, aliquid, nobis nihil esse veniam similique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed error tempore aut accusantium expedita. Magni recusandae quo sapiente similique aliquam perspiciatis omnis. Hic quod repellat veniam id fuga voluptatum ut!</p>
+                        <p><span>Location:</span>Shilezito</p>
+                        <p><span>Category:</span>quimico</p>
+                        <p><span>Seniority:</span>Jr.</p>
                         <button class="edit">Edit Job</button>
                         <button class="delete">Delete Job</button>
                     </div>
-                    
                 </div>
             </div>
         </section>
-        <section class="form-containers">
-            <div class="form--create--edit">
+        <section class="form-containers" id="form-edit">
+            <!-- <div class="form--create--edit">
                 <form action="">
                     <label for="">Job Title</label>
                     <input type="text" id="jobTitle" placeholder="Job Title">
@@ -87,34 +86,23 @@
                           <option value="1">1</option>
                           <option value="2">2</option>
                     </select>
+                    <label for="">TAGS</label>
+                    <input type="text" id="country" placeholder="country">
+                    <input type="text" id="category" placeholder="Category">
+                    <input type="text" id="seniority" placeholder="Seniority">
                     <div>
                         <button class="btnSubmit" type="submit" id="submitCrear">Submit</button> 
-                        <button class="btnCancelar">Cancelar</button> 
-                    </div>
-                </form>
-            </div>
-            <div class="form--create--edit">
-                <form action="">
-                    <label for="">Job Title</label>
-                    <input type="text" id="jobTitle" placeholder="Job Title">
-                    <label for="">Description</label>
-                    <textarea id="description" rows="5"></textarea>
-                    <label for="">Experience</label>
-                    <select aria-label="experience" id="experience">
-                          <option selected>Select an option</option>
-                          <option value="Not necesary">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                    </select>
-                    <div>
-                        <button class="btnSubmit" type="submit" id="submitCrear">Submit</button> 
-                        <button class="btnCancelar">Cancelar</button> 
+                        <button id="cancelarCrear" class="btnCancelar">Cancelar</button> 
                     </div>  
                 </form>
-            </div>
+            </div>-->
         </section>
         <footer>
             <p>© Copyright 2022</p>
         </footer>
+
+
+
+        <script src="./javascript/script.js"></script>
     </body>
 </html>
