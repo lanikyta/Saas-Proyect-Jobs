@@ -5,16 +5,18 @@
     border-radius: 10px;
     border: 2px solid $secondary--color--dark;
     padding: 1%;
+    align-items: center;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);  
     .div-img{
         flex-basis: 1;
         img{
-            margin-top: 50%;
+            border: 2px solid $secondary--color--dark;
         }
     }
     .div-details{
         flex-basis: 2;
         padding: 3%;
+        text-align: justify;
         .edit{
             @include button($color: $correct--color--light);
             width: 8em;
@@ -26,11 +28,16 @@
         p{
             margin: 2%;
         }
+        h2{
+            color: $primary--color--dark;
+            text-align: center;
+            margin: 2%;
+        }
         span{
-            margin: 0.5%;
-            padding: 0.7%;
-            border-radius: 10px;
-            background-color: $danger--color--light;
+            
+            border-radius: 8px;
+            font-weight: bold;
+            color: $secondary--color--dark;
         }
     }
 }

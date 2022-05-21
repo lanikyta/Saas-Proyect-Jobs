@@ -3,8 +3,7 @@ nav{
     @include flex_box($direction: row, $align: left);
     align-items: center;
     img{
-        width: 5%;
-        margin: 0.5%;
+        width: 3em;
     }
     ul{
         list-style: none;
@@ -14,7 +13,7 @@ nav{
         }
         a{
             text-decoration: none;
-            color: $primary--color--light;
+            color: $neutral--color;
             padding: 0.9%;
             
         }
