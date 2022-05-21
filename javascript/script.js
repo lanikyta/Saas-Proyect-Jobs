@@ -10,7 +10,9 @@ const getJobs = ()=>{
         .finally(()=> console.log('termine de ejecutarme'))
 }
 getJobs()
+
 let idGlobal = ""
+
 const userDetail = (id) => {
     idGlobal = id
     console.log(idGlobal) //Esto es para que checkees por consola que se guarda correctamente
@@ -18,6 +20,30 @@ const userDetail = (id) => {
         .then(res => res.json())
         .then(data => renderDetails(data))
         .catch(err => console.log(err))
+}
+
+const createJob = ()=>{
+    fetch('https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(validarData())
+        })
+        .finally(() => console.log("termine de ejecutar el POST"))
+    
+}
+
+const editForm = (id)=>{
+    fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(validarData())
+    })
+    .catch(err => console.log(err))
+    .finally(()=>'termine de editar')
 }
 
 const renderCards=(jobs)=>{
@@ -37,7 +63,7 @@ const renderCards=(jobs)=>{
     }
 }
 
-const createJob = ()=>{
+const formCrear = ()=>{
     containerCards.innerHTML=''
     containerCards.innerHTML=`
     <div class="form--create--edit">
@@ -67,12 +93,17 @@ const createJob = ()=>{
     queryId('cancelarCrear').addEventListener('click', ()=>{
     getJobs()
 })
+    queryId('submitCrear').addEventListener('click', ()=>{
+        createJob()
+        getJobs()
+})
 }
+
 queryId('home').addEventListener('click', ()=>{
     getJobs()
 })
 queryId('createJob').addEventListener('click', ()=>{
-    createJob()
+    formCrear()
 })
 
 let jobTitle, description, experience, country, category, seniority
@@ -149,19 +180,8 @@ const showForm = ()=>{
     `
     queryId('submitEditar').addEventListener('click', ()=>{
     
-    editarForm(idGlobal)
+    editForm(idGlobal)
     
 })
 }
 
-const editarForm = (id)=>{
-    fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'Application/json'
-        },
-        body: JSON.stringify(validarData())
-    })
-    .catch(err => console.log(err))
-    .finally(()=>'termine de editar')
-}
