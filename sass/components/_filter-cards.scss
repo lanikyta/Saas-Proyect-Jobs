@@ -1,6 +1,5 @@
 .filter-cards{
     @include format_box();
-    
     form{
         @include flex_box();
         align-items: center;
