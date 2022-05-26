@@ -1,0 +1,22 @@
+.container-alerts{
+    width: 60%;
+    .alert{
+        padding: 2%;
+        margin: 1%;
+        color: $primary--color--light;
+        background-color: $danger--color--light;
+        border-radius: 5px;
+    }
+    #eliminarAlert{
+        background-color: $danger--color--light;
+        #alertCancel{
+            @include button($color: $danger--color)
+        }
+        #alertConfirm{
+            @include button($color: $correct--color--light)
+        }
+    }
+    #editAlert{
+        background-color: $correct--color--light;
+    }
+}

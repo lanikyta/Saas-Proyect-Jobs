@@ -1,15 +1,16 @@
 const queryId = (idName) => document.getElementById(idName)
 const container = document.getElementById('container')
 const containerForms = document.getElementById('form-edit')
+const containerAlerts = document.getElementById('container-alerts')
 
 const getJobs = ()=>{
     fetch('https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs')
         .then(res => res.json())
         .then(data => renderCards(data))
-        .catch(err => console.log(err))
+        .catch(() => showAlert('error'))
         .finally(()=> console.log('termine de ejecutarme'))
 }
-getJobs()
+//getJobs()
 
 let idGlobal = ""
 
@@ -19,7 +20,8 @@ const jobDetail = (id) => {
     fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`)
         .then(res => res.json())
         .then(data => renderDetails(data))
-        .catch(err => console.log(err))
+        .catch(() => showAlert('error'))
+        .finally(()=> console.log('termine de ejecutar details'))
 }
 
 const createJob = (job)=>{
@@ -30,6 +32,7 @@ const createJob = (job)=>{
         },
         body: JSON.stringify(job)
         })
+        .then(res => !res.ok ? showAlert('error') : getJobs())
         .finally(() => console.log("termine de ejecutar el POST"))
     
 }
@@ -42,7 +45,7 @@ const editJob = (job)=>{
         },
         body: JSON.stringify(job)
     })
-    .catch(err => console.log(err))
+    .then(res => !res.ok ? showAlert('error') : showAlert('edit'))
     .finally(()=>'termine de editar')
 }
 
@@ -50,6 +53,7 @@ const deleteJob = (id)=>{
     fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`, {
         method: "DELETE",
     })
+    .then(res => !res.ok ? showAlert('error') : getJobs())
     .finally(() => console.log("termine de ejecutar el DELETE"))  
 }
 const spinner = ()=>{
@@ -59,6 +63,44 @@ const spinner = ()=>{
     <div/>
     `
     containerForms.innerHTML = ''
+}
+const reload = ()=>{
+    setTimeout(spinner, 500)
+    setTimeout(getJobs, 2000)
+}
+const showAlert = (string)=>{
+    if (string === 'error') {
+        containerForms.innerHTML = ''
+        container.innerHTML = `
+            <div class="container-alerts" id="container-alerts">
+                <div id="errorAlert" class="alert">
+                    <h2>Ha ocurrido un error. Intentalo de nuevo.</h2>
+                </div>
+            </div>
+        `
+        setTimeout(getJobs, 2000)
+    } else if(string === 'edit'){
+        containerForms.innerHTML = ''
+        container.innerHTML = `
+            <div class="container-alerts" id="container-alerts">
+                <div id="editAlert" class="alert">
+                <h2>Se ha editado con éxito!</h2>
+                </div>
+            </div>
+        `
+        setTimeout(()=>{jobDetail(idGlobal)}, 2000)
+    } else{
+        containerForms.innerHTML = ''
+        container.innerHTML = `
+            <div class="container-alerts" id="container-alerts">
+                <div id="eliminarAlert" class="alert">
+                    <h2>¿Seguro que quieres eliminar? (Esta acción no se puede deshacer)</h2>
+                    <button id="alertConfirm" onclick="deleteJob(idGlobal)">Confirmar</button>
+                    <button id="alertCancel" onclick="renderDetails(jobGlobal)">Cancelar</button>
+                </div>
+            </div> 
+        `
+    }
 }
 const renderCards=(jobs)=>{
     spinner()
@@ -167,8 +209,6 @@ const validarData = ()=>{
         }
         console.log(objetoNewJob)
         createJob(objetoNewJob)
-        setTimeout(spinner, 500)
-        setTimeout(getJobs, 2000)
     }
     else{
         const objetoEditJob = {
@@ -180,8 +220,6 @@ const validarData = ()=>{
         }
         console.log(objetoEditJob)
         editJob(objetoEditJob)
-        setTimeout(spinner, 500)
-        setTimeout(getJobs, 2000)
     }
 }
 let jobGlobal
@@ -203,14 +241,11 @@ const renderDetails = (job)=>{
                 <p><span>Category: </span>${category}</p>
                 <p><span>Seniority: </span>${seniority}</p>
                 <button class="edit" onclick="showForm()">Edit Job</button>
-                <button class="delete" onclick="alertDeleteJob()">Delete Job</button>
+                <button class="delete" onclick="showAlert()">Delete Job</button>
             </div>
         </div>
     `
 }, 2000)
-}
-const alertDeleteJob = ()=>{
-
 }
 const showForm = ()=>{  
     const {title, description, country, category, seniority} = jobGlobal

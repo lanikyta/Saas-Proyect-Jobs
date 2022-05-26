@@ -19,11 +19,23 @@
     padding: 1%;
 }
 @mixin button ($color: $neutral--color){
-    padding: 0.8em;
+    padding: 0.9em;
     margin: 1em 1em;
-    width: 6em;
-    border-radius: 5px;
+    width: 14%;
+    font-size: 70%;
+    font-weight: bold;
+    border: 3px solid rgba(172, 161, 161, 0.596);
+    border-radius: 8px;
+    color: $primary--color--dark;
+    //text-align: center;
     background-color: $color;
     text-align: center;
     cursor: pointer;
+    &:hover{
+        box-shadow: 2px 1px 12px 3px $color;
+    }
+    &:active{
+        border: 3px inset $neutral--color;
+        
+    }
 }
