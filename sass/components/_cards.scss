@@ -1,9 +1,11 @@
 .container-cards{
     @include format_box();
     @include flex_box($direction: row, $align: space-around);
+    background-color: #fcfffc;
     flex-wrap: wrap;
     //align-items: stretch;
     .container-cards__card{
+        font-size: 1vw;
         //align-self: stretch;
         width: 20em;
         height: 35em;

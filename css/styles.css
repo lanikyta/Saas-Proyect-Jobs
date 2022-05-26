@@ -5,6 +5,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  position: relative;
+  padding-bottom: 4em;
+  min-height: 100vh;
+  font-size: 1.5vw;
+}
+
 .container-cards {
   width: 90%;
   margin: 1% auto;
@@ -15,9 +22,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-color: #fcfffc;
   flex-wrap: wrap;
 }
 .container-cards .container-cards__card {
+  font-size: 1vw;
   width: 20em;
   height: 35em;
   border-radius: 10px;
@@ -42,14 +51,24 @@
   background-color: lightpink;
 }
 .container-cards .container-cards__card button {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: rgb(145, 129, 190);
   text-align: center;
   cursor: pointer;
   width: 8em;
+}
+.container-cards .container-cards__card button:hover {
+  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+}
+.container-cards .container-cards__card button:active {
+  border: 3px inset rgb(247, 240, 240);
 }
 
 .filter-cards {
@@ -72,10 +91,14 @@
   margin-right: 1%;
 }
 .filter-cards form #search {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: rgb(145, 129, 190);
   text-align: center;
   cursor: pointer;
@@ -83,14 +106,30 @@
 .filter-cards form #search:hover {
   box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
 }
+.filter-cards form #search:active {
+  border: 3px inset rgb(247, 240, 240);
+}
+.filter-cards form #search:hover {
+  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+}
 .filter-cards form #searchClear {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: lightpink;
   text-align: center;
   cursor: pointer;
+}
+.filter-cards form #searchClear:hover {
+  box-shadow: 2px 1px 12px 3px lightpink;
+}
+.filter-cards form #searchClear:active {
+  border: 3px inset rgb(247, 240, 240);
 }
 .filter-cards form #searchClear:hover {
   box-shadow: 2px 1px 12px 3px lightpink;
@@ -103,7 +142,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  position: absolute;
+  bottom: 0%;
 }
 
 .form--create--edit {
@@ -132,22 +172,42 @@ footer {
   margin: 1%;
 }
 .form--create--edit form .btnSubmit {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: rgb(145, 129, 190);
   text-align: center;
   cursor: pointer;
 }
+.form--create--edit form .btnSubmit:hover {
+  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+}
+.form--create--edit form .btnSubmit:active {
+  border: 3px inset rgb(247, 240, 240);
+}
 .form--create--edit form .btnCancelar {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: lightpink;
   text-align: center;
   cursor: pointer;
+}
+.form--create--edit form .btnCancelar:hover {
+  box-shadow: 2px 1px 12px 3px lightpink;
+}
+.form--create--edit form .btnCancelar:active {
+  border: 3px inset rgb(247, 240, 240);
 }
 
 nav {
@@ -192,35 +252,54 @@ nav ul a:hover {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
 }
 .container-cards__details .div-img {
-  flex-basis: 1;
+  max-width: 50%;
 }
 .container-cards__details .div-img img {
   border: 2px solid rgb(26, 10, 75);
 }
 .container-cards__details .div-details {
-  flex-basis: 2;
   padding: 3%;
   text-align: justify;
 }
 .container-cards__details .div-details .edit {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: rgb(135, 223, 135);
   text-align: center;
   cursor: pointer;
   width: 8em;
 }
+.container-cards__details .div-details .edit:hover {
+  box-shadow: 2px 1px 12px 3px rgb(135, 223, 135);
+}
+.container-cards__details .div-details .edit:active {
+  border: 3px inset rgb(247, 240, 240);
+}
 .container-cards__details .div-details .delete {
-  padding: 0.8em;
+  padding: 0.9em;
   margin: 1em 1em;
-  width: 6em;
-  border-radius: 5px;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
   background-color: red;
   text-align: center;
   cursor: pointer;
   width: 8em;
+}
+.container-cards__details .div-details .delete:hover {
+  box-shadow: 2px 1px 12px 3px red;
+}
+.container-cards__details .div-details .delete:active {
+  border: 3px inset rgb(247, 240, 240);
 }
 .container-cards__details .div-details p {
   margin: 2%;
@@ -234,6 +313,61 @@ nav ul a:hover {
   border-radius: 8px;
   font-weight: bold;
   color: rgb(26, 10, 75);
+}
+
+.container-alerts {
+  width: 60%;
+}
+.container-alerts .alert {
+  padding: 2%;
+  margin: 1%;
+  color: rgb(145, 129, 190);
+  background-color: lightpink;
+  border-radius: 5px;
+}
+.container-alerts #eliminarAlert {
+  background-color: lightpink;
+}
+.container-alerts #eliminarAlert #alertCancel {
+  padding: 0.9em;
+  margin: 1em 1em;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+}
+.container-alerts #eliminarAlert #alertCancel:hover {
+  box-shadow: 2px 1px 12px 3px red;
+}
+.container-alerts #eliminarAlert #alertCancel:active {
+  border: 3px inset rgb(247, 240, 240);
+}
+.container-alerts #eliminarAlert #alertConfirm {
+  padding: 0.9em;
+  margin: 1em 1em;
+  width: 14%;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(67, 10, 223);
+  background-color: rgb(135, 223, 135);
+  text-align: center;
+  cursor: pointer;
+}
+.container-alerts #eliminarAlert #alertConfirm:hover {
+  box-shadow: 2px 1px 12px 3px rgb(135, 223, 135);
+}
+.container-alerts #eliminarAlert #alertConfirm:active {
+  border: 3px inset rgb(247, 240, 240);
+}
+.container-alerts #editAlert {
+  background-color: rgb(135, 223, 135);
 }
 
 /*# sourceMappingURL=styles.css.map */

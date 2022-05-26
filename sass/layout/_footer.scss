@@ -1,5 +1,6 @@
 footer{
     @include format_nav();
     @include flex_box();
-    align-items: flex-end;
+    position: absolute;
+    bottom: 0%;
 }
