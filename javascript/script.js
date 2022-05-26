@@ -10,7 +10,7 @@ const getJobs = ()=>{
         .catch(() => showAlert('error'))
         .finally(()=> console.log('termine de ejecutarme'))
 }
-//getJobs()
+getJobs()
 
 let idGlobal = ""
 
