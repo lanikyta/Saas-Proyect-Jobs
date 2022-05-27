@@ -2,6 +2,9 @@ nav{
     @include format_nav();
     @include flex_box($direction: row, $align: left);
     align-items: center;
+    box-shadow: 5px 10px 20px $primary--color--light;
+    font-family: 'Macondo', cursive;
+    font-size: large;
     img{
         width: 3em;
     }
@@ -9,18 +12,20 @@ nav{
         list-style: none;
         width: 50%;
         li{
+            margin-left: 3%;
             display: inline;
         }
         a{
             text-decoration: none;
             color: $neutral--color;
             padding: 0.9%;
-            
-        }
-        a:hover{
-            background-color: $secondary--color--dark;
+            &:hover{
+            background-color: $primary--color--light;
+            color: $secondary--color--dark;
             border-radius: 8px;
+            }
         }
+        
         
     }
 }

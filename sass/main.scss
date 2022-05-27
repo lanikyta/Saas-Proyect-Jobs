@@ -1,10 +1,12 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import './base/reset';
+@import './base/typography';
 @import './components/cards';
 @import './components/filter-cards';
 @import './layout/footer';
 @import './components/form';
 @import './layout/navbar';
+@import './layout/body';
 @import './components/card-details';
 @import './components/alerts';

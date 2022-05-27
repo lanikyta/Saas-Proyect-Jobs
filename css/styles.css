@@ -2,14 +2,10 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  position: relative;
-  padding-bottom: 4em;
-  min-height: 100vh;
-  font-size: 1.5vw;
+  font-family: "Macondo", cursive;
 }
 
 .container-cards {
@@ -24,48 +20,64 @@ body {
   justify-content: space-around;
   background-color: #fcfffc;
   flex-wrap: wrap;
+  font-size: 1.3vw;
 }
 .container-cards .container-cards__card {
-  font-size: 1vw;
   width: 20em;
-  height: 35em;
+  height: 32em;
   border-radius: 10px;
-  border: 2px solid rgb(26, 10, 75);
+  border: 2px solid rgb(200, 132, 166);
   margin: 1%;
   padding: 1%;
-  background-color: rgb(115, 190, 219);
+  align-content: center;
+  background-color: rgb(197, 225, 236);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
 }
+.container-cards .container-cards__card img {
+  width: 80%;
+  max-height: 14em;
+}
 .container-cards .container-cards__card h2 {
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   margin: 2%;
 }
-.container-cards .container-cards__card p {
+.container-cards .container-cards__card .container-description {
+  overflow-y: auto;
+  height: 5em;
+}
+.container-cards .container-cards__card .container-description p {
   margin: 2%;
+  text-align: justify;
   margin-top: 5%;
+}
+.container-cards .container-cards__card p {
+  margin: 3%;
+  margin-top: 10%;
 }
 .container-cards .container-cards__card span {
   margin: 1%;
+  padding-bottom: 1em;
   padding: 2%;
   border-radius: 8px;
-  background-color: lightpink;
+  background-color: rgb(247, 240, 240);
 }
 .container-cards .container-cards__card button {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
-  background-color: rgb(145, 129, 190);
+  color: rgb(221, 86, 23);
+  background-color: rgb(240, 245, 175);
   text-align: center;
   cursor: pointer;
   width: 8em;
 }
 .container-cards .container-cards__card button:hover {
-  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+  box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .container-cards .container-cards__card button:active {
   border: 3px inset rgb(247, 240, 240);
@@ -78,6 +90,7 @@ body {
   text-align: center;
   align-items: center;
   border-radius: 10px;
+  margin-top: 0%;
 }
 .filter-cards form {
   display: flex;
@@ -89,38 +102,45 @@ body {
   width: 15%;
   padding: 0.6em;
   margin-right: 1%;
+  font-family: "Philosopher", sans-serif;
+  font-size: large;
+}
+.filter-cards form option {
+  background-color: rgb(240, 245, 175);
 }
 .filter-cards form #search {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
-  background-color: rgb(145, 129, 190);
+  color: rgb(221, 86, 23);
+  background-color: rgb(240, 245, 175);
   text-align: center;
   cursor: pointer;
 }
 .filter-cards form #search:hover {
-  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+  box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .filter-cards form #search:active {
   border: 3px inset rgb(247, 240, 240);
 }
 .filter-cards form #search:hover {
-  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+  box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .filter-cards form #searchClear {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: lightpink;
   text-align: center;
   cursor: pointer;
@@ -137,13 +157,14 @@ body {
 
 footer {
   width: 100%;
-  background-color: rgb(67, 10, 223);
+  background-color: rgb(221, 86, 23);
   padding: 1%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   position: absolute;
   bottom: 0%;
+  box-shadow: 5px -10px 20px rgb(240, 245, 175);
 }
 
 .form--create--edit {
@@ -175,17 +196,18 @@ footer {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
-  background-color: rgb(145, 129, 190);
+  color: rgb(221, 86, 23);
+  background-color: rgb(240, 245, 175);
   text-align: center;
   cursor: pointer;
 }
 .form--create--edit form .btnSubmit:hover {
-  box-shadow: 2px 1px 12px 3px rgb(145, 129, 190);
+  box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .form--create--edit form .btnSubmit:active {
   border: 3px inset rgb(247, 240, 240);
@@ -194,11 +216,12 @@ footer {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: lightpink;
   text-align: center;
   cursor: pointer;
@@ -212,12 +235,15 @@ footer {
 
 nav {
   width: 100%;
-  background-color: rgb(67, 10, 223);
+  background-color: rgb(221, 86, 23);
   padding: 1%;
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
+  box-shadow: 5px 10px 20px rgb(240, 245, 175);
+  font-family: "Macondo", cursive;
+  font-size: large;
 }
 nav img {
   width: 3em;
@@ -227,6 +253,7 @@ nav ul {
   width: 50%;
 }
 nav ul li {
+  margin-left: 3%;
   display: inline;
 }
 nav ul a {
@@ -235,8 +262,15 @@ nav ul a {
   padding: 0.9%;
 }
 nav ul a:hover {
-  background-color: rgb(26, 10, 75);
+  background-color: rgb(240, 245, 175);
+  color: rgb(200, 132, 166);
   border-radius: 8px;
+}
+
+body {
+  position: relative;
+  padding-bottom: 4em;
+  min-height: 100vh;
 }
 
 .container-cards__details {
@@ -246,16 +280,13 @@ nav ul a:hover {
   width: 50%;
   margin: 1% auto;
   border-radius: 10px;
-  border: 2px solid rgb(26, 10, 75);
+  border: 2px solid rgb(200, 132, 166);
   padding: 1%;
   align-items: center;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
 }
 .container-cards__details .div-img {
   max-width: 50%;
-}
-.container-cards__details .div-img img {
-  border: 2px solid rgb(26, 10, 75);
 }
 .container-cards__details .div-details {
   padding: 3%;
@@ -265,11 +296,12 @@ nav ul a:hover {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: rgb(135, 223, 135);
   text-align: center;
   cursor: pointer;
@@ -285,14 +317,16 @@ nav ul a:hover {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: red;
   text-align: center;
   cursor: pointer;
+  color: rgb(240, 245, 175);
   width: 8em;
 }
 .container-cards__details .div-details .delete:hover {
@@ -301,18 +335,38 @@ nav ul a:hover {
 .container-cards__details .div-details .delete:active {
   border: 3px inset rgb(247, 240, 240);
 }
+.container-cards__details .div-details .back {
+  padding: 0.9em;
+  margin: 1em 1em;
+  width: 14%;
+  font-family: "Philosopher", sans-serif;
+  font-size: 70%;
+  font-weight: bold;
+  border: 3px solid rgba(172, 161, 161, 0.596);
+  border-radius: 8px;
+  color: rgb(221, 86, 23);
+  background-color: rgb(247, 240, 240);
+  text-align: center;
+  cursor: pointer;
+}
+.container-cards__details .div-details .back:hover {
+  box-shadow: 2px 1px 12px 3px rgb(247, 240, 240);
+}
+.container-cards__details .div-details .back:active {
+  border: 3px inset rgb(247, 240, 240);
+}
 .container-cards__details .div-details p {
   margin: 2%;
 }
 .container-cards__details .div-details h2 {
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   text-align: center;
   margin: 2%;
 }
 .container-cards__details .div-details span {
   border-radius: 8px;
   font-weight: bold;
-  color: rgb(26, 10, 75);
+  color: rgb(200, 132, 166);
 }
 
 .container-alerts {
@@ -321,7 +375,7 @@ nav ul a:hover {
 .container-alerts .alert {
   padding: 2%;
   margin: 1%;
-  color: rgb(145, 129, 190);
+  color: rgb(240, 245, 175);
   background-color: lightpink;
   border-radius: 5px;
 }
@@ -332,14 +386,16 @@ nav ul a:hover {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: red;
   text-align: center;
   cursor: pointer;
+  color: rgb(240, 245, 175);
 }
 .container-alerts #eliminarAlert #alertCancel:hover {
   box-shadow: 2px 1px 12px 3px red;
@@ -351,11 +407,12 @@ nav ul a:hover {
   padding: 0.9em;
   margin: 1em 1em;
   width: 14%;
+  font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
-  color: rgb(67, 10, 223);
+  color: rgb(221, 86, 23);
   background-color: rgb(135, 223, 135);
   text-align: center;
   cursor: pointer;

@@ -10,7 +10,8 @@
     #eliminarAlert{
         background-color: $danger--color--light;
         #alertCancel{
-            @include button($color: $danger--color)
+            @include button($color: $danger--color);
+            color: $primary--color--light;
         }
         #alertConfirm{
             @include button($color: $correct--color--light)
