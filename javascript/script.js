@@ -102,35 +102,29 @@ const showAlert = (string)=>{
         `
     }
 }
+let dataGlobal
 const renderCards=(jobs)=>{
     spinner()
+    dataGlobal = jobs
     setTimeout(()=>{
     container.innerHTML = `
             <div class="filter-cards">
                 <form>
                     <select id="countryFilter">
                         <option selected>Country</option>
-                        <option value="">Arg</option>
-                        <option value="">Col</option>
-                        <option value="">Chile</option>
                     </select>
                     <select id="seniorityFilter">
                         <option selected>Seniority</option>
-                        <option value="">Arg</option>
-                        <option value="">Col</option>
-                        <option value="">Chile</option>
                     </select>
                     <select id="categoryFilter">
                         <option selected>Category</option>
-                        <option value="">Arg</option>
-                        <option value="">Col</option>
-                        <option value="">Chile</option>
                     </select>
-                    <button id="search">Search</button>
-                    <button id="searchClear">Clear</button>
+                    <button id="search" onclick="filtrar()">Search</button>
+                    <button id="searchClear" onclick="getJobs()">Clear</button>
                 </form>
             </div>
     `
+    generarDatosFilter(jobs)
     for(const job of jobs){
         const {title, description, country, category, seniority, id} = job
         container.innerHTML += `
@@ -274,3 +268,61 @@ const showForm = ()=>{
 })
 }
 
+const generarDatosFilter = (jobs)=>{
+    let paises = []
+    let senioritys = []
+    let categorys = []
+    for(const job of jobs){
+        const {country, category, seniority} = job
+        !paises.includes(country) && paises.push(country)
+        !senioritys.includes(seniority) && senioritys.push(seniority)
+        !categorys.includes(category) && categorys.push(category)      
+    } for (let i = 0; i < paises.length; i++) {
+            queryId("countryFilter").innerHTML += `
+                
+                <option>${paises[i]}</option>
+                `
+            }
+        for (let x = 0; x < senioritys.length; x++) {
+            queryId("seniorityFilter").innerHTML += `
+                
+                <option>${senioritys[x]}</option>
+                `
+            }
+        for (let z = 0; z < categorys.length; z++) {
+            queryId("categoryFilter").innerHTML += `
+                
+                <option>${categorys[z]}</option>
+                `                       
+            }
+}
+
+const filtrar = ()=>{
+    let dataFiltrada =''
+    if(queryId('countryFilter').value !== 'Country'){
+        dataFiltrada = dataGlobal.filter(job=>job.country === queryId('countryFilter').value)
+        if(queryId('seniorityFilter').value !== 'Seniority'){
+            dataFiltrada = dataFiltrada.filter(job=>job.seniority === queryId('seniorityFilter').value)
+            if(queryId('categoryFilter').value !== 'Category'){
+                dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
+                renderCards(dataFiltrada)//renderizar cards con los 3 filtros
+            } else{ renderCards(dataFiltrada) }//Render COUNT y SEN
+        }
+        else if(queryId('categoryFilter').value !== 'Category'){
+            dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
+            renderCards(dataFiltrada) //render COUNT Y CAT
+        } else { renderCards(dataFiltrada) }//render COUNT
+    }
+    else if(queryId('seniorityFilter').value !== 'Seniority'){
+        dataFiltrada = dataGlobal.filter(job=>job.seniority === queryId('seniorityFilter').value)
+        if(queryId('categoryFilter').value !== 'Category'){
+            dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
+            renderCards(dataFiltrada) //RENDER SEN Y CAT
+        } else { renderCards(dataFiltrada) }//RENDER SEN
+    } 
+    else if(queryId('categoryFilter').value !== 'Category'){
+        dataFiltrada = dataGlobal.filter(job=>job.category === queryId('categoryFilter').value)
+        renderCards(dataFiltrada) //RENDER CAT
+    } 
+    else{ renderCards(dataGlobal) }
+}
