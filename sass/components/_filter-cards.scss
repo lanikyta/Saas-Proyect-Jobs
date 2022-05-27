@@ -1,5 +1,7 @@
 .filter-cards{
     @include format_box();
+    margin-top: 0%;
+    
     form{
         @include flex_box();
         align-items: center;
@@ -7,6 +9,11 @@
             width: 15%;
             padding: 0.6em;
             margin-right: 1%;
+            font-family: 'Philosopher', sans-serif;
+            font-size: large;
+        }
+        option{
+            background-color: $primary--color--light;
         }
         #search{
             @include button($color: $primary--color--light)

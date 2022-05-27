@@ -3,31 +3,45 @@
     @include flex_box($direction: row, $align: space-around);
     background-color: #fcfffc;
     flex-wrap: wrap;
-    //align-items: stretch;
+    font-size: 1.3vw;
     .container-cards__card{
-        font-size: 1vw;
-        //align-self: stretch;
         width: 20em;
-        height: 35em;
+        height: 32em;
         border-radius: 10px;
         border: 2px solid $secondary--color--dark;
         margin: 1%;
         padding: 1%;
+        align-content: center;
         background-color: $secondary--color--light;
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+        img{
+            width: 80%;
+            max-height: 14em;
+        }
         h2{
             color: $primary--color--dark;
             margin: 2%;
         }
-        p{
+        .container-description{
+            overflow-y: auto;
+            height: 5em;
+            p{
             margin: 2%;
+            text-align: justify;
             margin-top: 5%;
+            }
+        }
+        p{
+            margin: 3%;
+            margin-top: 10%;
         }
         span{
             margin: 1%;
+            padding-bottom: 1em;
+            
             padding: 2%;
             border-radius: 8px;
-            background-color: $danger--color--light;
+            background-color: $neutral--color;
         }
         button{
             @include button($color: $primary--color--light);

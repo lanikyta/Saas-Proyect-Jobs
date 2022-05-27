@@ -129,9 +129,9 @@ const renderCards=(jobs)=>{
         const {title, description, country, category, seniority, id} = job
         container.innerHTML += `
             <div class="container-cards__card">
-                <img src="./assets/4.svg" alt="imagenrandom" width="80%">
+                <img src="./assets/${Math.ceil(Math.random()*10)}.svg" alt="imagenrandom" width="80%">
                 <h2>${title}</h1>
-                <p>${description}</p>
+                <div class="container-description"><p>${description}</p></div>
                 <p><span id="tag1">${country}</span> <span id="tag2">${category}</span> <span id="tag3">${seniority}</span>
                 </p>
                 <button onclick="jobDetail(${id})">See Details</button>
@@ -201,7 +201,6 @@ const validarData = ()=>{
             category: category,
             seniority: seniority
         }
-        console.log(objetoNewJob)
         createJob(objetoNewJob)
     }
     else{
@@ -212,7 +211,6 @@ const validarData = ()=>{
             category: category,
             seniority: seniority
         }
-        console.log(objetoEditJob)
         editJob(objetoEditJob)
     }
 }
@@ -226,7 +224,7 @@ const renderDetails = (job)=>{
 
         <div class="container-cards__details">
             <div class="div-img">
-                <img src="./assets/1.svg" alt="" width="100%">
+                <img src="./assets/${Math.ceil(Math.random()*10)}.svg" alt="" width="100%">
             </div>
             <div class="div-details">
                 <h2>${title}</h1>
@@ -236,6 +234,7 @@ const renderDetails = (job)=>{
                 <p><span>Seniority: </span>${seniority}</p>
                 <button class="edit" onclick="showForm()">Edit Job</button>
                 <button class="delete" onclick="showAlert()">Delete Job</button>
+                <button class="back" onclick="getJobs()">   <<   </button>
             </div>
         </div>
     `

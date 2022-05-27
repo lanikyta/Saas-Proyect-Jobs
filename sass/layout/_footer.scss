@@ -3,4 +3,5 @@ footer{
     @include flex_box();
     position: absolute;
     bottom: 0%;
+    box-shadow: 5px -10px 20px $primary--color--light;
 }
