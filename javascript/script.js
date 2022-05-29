@@ -8,7 +8,6 @@ const getJobs = ()=>{
         .then(res => res.json())
         .then(data => renderCards(data))
         .catch(() => showAlert('error'))
-        .finally(()=> console.log('termine de ejecutarme'))
 }
 getJobs()
 
@@ -16,12 +15,10 @@ let idGlobal = ""
 
 const jobDetail = (id) => {
     idGlobal = id
-    console.log(idGlobal) //Esto es para que checkees por consola que se guarda correctamente
     fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`)
         .then(res => res.json())
         .then(data => renderDetails(data))
         .catch(() => showAlert('error'))
-        .finally(()=> console.log('termine de ejecutar details'))
 }
 
 const createJob = (job)=>{
@@ -32,9 +29,7 @@ const createJob = (job)=>{
         },
         body: JSON.stringify(job)
         })
-        .then(res => !res.ok ? showAlert('error') : getJobs())
-        .finally(() => console.log("termine de ejecutar el POST"))
-    
+        .then(res => !res.ok ? showAlert('error') : getJobs())    
 }
 
 const editJob = (job)=>{
@@ -46,15 +41,13 @@ const editJob = (job)=>{
         body: JSON.stringify(job)
     })
     .then(res => !res.ok ? showAlert('error') : showAlert('edit'))
-    .finally(()=>'termine de editar')
 }
 
 const deleteJob = (id)=>{
     fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`, {
         method: "DELETE",
     })
-    .then(res => !res.ok ? showAlert('error') : getJobs())
-    .finally(() => console.log("termine de ejecutar el DELETE"))  
+    .then(res => !res.ok ? showAlert('error') : getJobs()) 
 }
 const spinner = ()=>{
     container.innerHTML = `
@@ -63,10 +56,6 @@ const spinner = ()=>{
     <div/>
     `
     containerForms.innerHTML = ''
-}
-const reload = ()=>{
-    setTimeout(spinner, 500)
-    setTimeout(getJobs, 2000)
 }
 const showAlert = (string)=>{
     if (string === 'error') {
@@ -119,8 +108,8 @@ const renderCards=(jobs)=>{
                     <select id="categoryFilter">
                         <option selected>Category</option>
                     </select>
-                    <button id="search" onclick="filtrar()">Search</button>
-                    <button id="searchClear" onclick="getJobs()">Clear</button>
+                    <div><button id="search" onclick="filtrar()">Search</button>
+                    <button id="searchClear" onclick="getJobs()">Clear</button></div>
                 </form>
             </div>
     `
@@ -152,7 +141,7 @@ const formCrear = ()=>{
         <label for="">Description</label>
         <textarea id="description" rows="5"></textarea>
         <label for="">TAGS</label>
-        <input type="text" id="country" placeholder="country">
+        <input type="text" id="country" placeholder="Country">
         <input type="text" id="category" placeholder="Category">
         <input type="text" id="seniority" placeholder="Seniority">
         <div>
@@ -217,7 +206,7 @@ const validarData = ()=>{
 let jobGlobal
 const renderDetails = (job)=>{
     jobGlobal = job
-    const {title, description, country, category, seniority, id} = job
+    const {title, description, country, category, seniority} = job
     spinner()
     setTimeout(()=>{
     container.innerHTML = `
@@ -232,9 +221,9 @@ const renderDetails = (job)=>{
                 <p><span>Location: </span>${country}</p>
                 <p><span>Category: </span>${category}</p>
                 <p><span>Seniority: </span>${seniority}</p>
-                <button class="edit" onclick="showForm()">Edit Job</button>
+                <div class="contenedor-botones"><button class="edit" onclick="showForm()">Edit Job</button>
                 <button class="delete" onclick="showAlert()">Delete Job</button>
-                <button class="back" onclick="getJobs()">   <<   </button>
+                <button class="back" onclick="getJobs()">   <<   </button></div>
             </div>
         </div>
     `
@@ -255,18 +244,19 @@ const showForm = ()=>{
             <input type="text" id="seniority" value="${seniority}">
 
             <div>
-                <button class="btnSubmit" id="submitEditar">Submit</button> 
+                <button class="btnSubmit" id="submitEditar">Editar</button> 
                 <button id="cancelarEditar" class="btnCancelar">Cancelar</button> 
             </div>  
         </form>
     </div>
     `
     queryId('submitEditar').addEventListener('click', ()=>{
-    
-    validarData()
-})
+        validarData()
+    })
+    queryId('cancelarEditar').addEventListener('click', ()=>{
+        containerForms.innerHTML = ''
+    })
 }
-
 const generarDatosFilter = (jobs)=>{
     let paises = []
     let senioritys = []
@@ -276,24 +266,22 @@ const generarDatosFilter = (jobs)=>{
         !paises.includes(country) && paises.push(country)
         !senioritys.includes(seniority) && senioritys.push(seniority)
         !categorys.includes(category) && categorys.push(category)      
-    } for (let i = 0; i < paises.length; i++) {
-            queryId("countryFilter").innerHTML += `
-                
-                <option>${paises[i]}</option>
-                `
-            }
-        for (let x = 0; x < senioritys.length; x++) {
-            queryId("seniorityFilter").innerHTML += `
-                
-                <option>${senioritys[x]}</option>
-                `
-            }
-        for (let z = 0; z < categorys.length; z++) {
-            queryId("categoryFilter").innerHTML += `
-                
-                <option>${categorys[z]}</option>
-                `                       
-            }
+    } 
+    for (let i = 0; i < paises.length; i++) {
+        queryId("countryFilter").innerHTML += `
+            <option>${paises[i]}</option>
+            `
+        }
+    for (let x = 0; x < senioritys.length; x++) {
+        queryId("seniorityFilter").innerHTML += `
+            <option>${senioritys[x]}</option>
+            `
+        }
+    for (let z = 0; z < categorys.length; z++) {
+        queryId("categoryFilter").innerHTML += `
+            <option>${categorys[z]}</option>
+            `                       
+        }
 }
 
 const filtrar = ()=>{

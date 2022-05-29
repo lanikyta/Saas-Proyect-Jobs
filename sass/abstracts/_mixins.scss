@@ -21,7 +21,7 @@
 @mixin button ($color: $neutral--color){
     padding: 0.9em;
     margin: 1em 1em;
-    width: 14%;
+    width: 8em;
     font-family: 'Philosopher', sans-serif;
     font-size: 70%;
     font-weight: bold;
@@ -36,6 +36,11 @@
     }
     &:active{
         border: 3px inset $neutral--color;
+        
+    }
+    @media (max-width: 776px){
+        width: 6em;
+        margin: 1%;        
         
     }
 }
