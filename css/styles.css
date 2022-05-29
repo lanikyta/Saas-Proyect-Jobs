@@ -20,22 +20,26 @@ body {
   justify-content: space-around;
   background-color: #fcfffc;
   flex-wrap: wrap;
-  font-size: 1.3vw;
 }
 .container-cards .container-cards__card {
-  width: 20em;
-  height: 32em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  width: 20rem;
+  height: 32rem;
   border-radius: 10px;
   border: 2px solid rgb(200, 132, 166);
-  margin: 1%;
+  margin: 2%;
   padding: 1%;
   align-content: center;
   background-color: rgb(197, 225, 236);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 1px;
 }
 .container-cards .container-cards__card img {
   width: 80%;
-  max-height: 14em;
+  max-height: 12em;
 }
 .container-cards .container-cards__card h2 {
   color: rgb(221, 86, 23);
@@ -43,12 +47,12 @@ body {
 }
 .container-cards .container-cards__card .container-description {
   overflow-y: auto;
-  height: 5em;
+  max-height: 5em;
 }
 .container-cards .container-cards__card .container-description p {
   margin: 2%;
   text-align: justify;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 .container-cards .container-cards__card p {
   margin: 3%;
@@ -57,14 +61,15 @@ body {
 .container-cards .container-cards__card span {
   margin: 1%;
   padding-bottom: 1em;
+  display: inline-block;
   padding: 2%;
   border-radius: 8px;
-  background-color: rgb(247, 240, 240);
+  background-color: #fcfffc;
 }
 .container-cards .container-cards__card button {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -80,11 +85,17 @@ body {
   box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .container-cards .container-cards__card button:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-cards .container-cards__card button {
+    width: 6em;
+    margin: 1%;
+  }
 }
 
 .filter-cards {
-  width: 90%;
+  width: 98%;
   margin: 1% auto;
   padding: 1%;
   text-align: center;
@@ -98,12 +109,29 @@ body {
   justify-content: center;
   align-items: center;
 }
-.filter-cards form select, .filter-cards .form--create--edit form label, .form--create--edit .filter-cards form label, .filter-cards form option {
-  width: 15%;
+.filter-cards form select, .filter-cards form option {
+  width: 15em;
   padding: 0.6em;
   margin-right: 1%;
   font-family: "Philosopher", sans-serif;
-  font-size: large;
+  font-size: 1em;
+}
+.filter-cards form select:focus, .filter-cards form option:focus {
+  border-color: rgb(135, 223, 135);
+}
+@media (max-width: 776px) {
+  .filter-cards form {
+    flex-direction: column;
+    width: 90%;
+    margin: 1% auto;
+  }
+  .filter-cards form select {
+    margin-bottom: 2%;
+  }
+  .filter-cards form div {
+    width: 90%;
+    display: inline;
+  }
 }
 .filter-cards form option {
   background-color: rgb(240, 245, 175);
@@ -111,7 +139,7 @@ body {
 .filter-cards form #search {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -126,7 +154,13 @@ body {
   box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .filter-cards form #search:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .filter-cards form #search {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .filter-cards form #search:hover {
   box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
@@ -134,7 +168,7 @@ body {
 .filter-cards form #searchClear {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -149,7 +183,13 @@ body {
   box-shadow: 2px 1px 12px 3px lightpink;
 }
 .filter-cards form #searchClear:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .filter-cards form #searchClear {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .filter-cards form #searchClear:hover {
   box-shadow: 2px 1px 12px 3px lightpink;
@@ -165,6 +205,7 @@ footer {
   position: absolute;
   bottom: 0%;
   box-shadow: 5px -10px 20px rgb(240, 245, 175);
+  color: #fcfffc;
 }
 
 .form--create--edit {
@@ -181,21 +222,25 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
-.form--create--edit form select, .form--create--edit form label, .form--create--edit form input, .form--create--edit form option {
+.form--create--edit form select, .form--create--edit form input, .form--create--edit form option {
   padding: 0.5em;
   height: 3em;
   margin: 1%;
+  font-family: "Philosopher", sans-serif;
 }
 .form--create--edit form label {
   height: 1em;
+  margin: 1%;
 }
 .form--create--edit form textarea {
   margin: 1%;
+  padding: 0.5em;
+  font-family: "Philosopher", sans-serif;
 }
 .form--create--edit form .btnSubmit {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -210,12 +255,18 @@ footer {
   box-shadow: 2px 1px 12px 3px rgb(240, 245, 175);
 }
 .form--create--edit form .btnSubmit:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .form--create--edit form .btnSubmit {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .form--create--edit form .btnCancelar {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -230,7 +281,25 @@ footer {
   box-shadow: 2px 1px 12px 3px lightpink;
 }
 .form--create--edit form .btnCancelar:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .form--create--edit form .btnCancelar {
+    width: 6em;
+    margin: 1%;
+  }
+}
+@media (max-width: 776px) {
+  .form--create--edit {
+    width: 90%;
+    margin: 1% auto;
+  }
+  .form--create--edit select, .form--create--edit input, .form--create--edit option {
+    margin-bottom: 3%;
+  }
+  .form--create--edit label {
+    margin-bottom: 1rem;
+  }
 }
 
 nav {
@@ -242,7 +311,6 @@ nav {
   justify-content: left;
   align-items: center;
   box-shadow: 5px 10px 20px rgb(240, 245, 175);
-  font-family: "Macondo", cursive;
   font-size: large;
 }
 nav img {
@@ -250,7 +318,7 @@ nav img {
 }
 nav ul {
   list-style: none;
-  width: 50%;
+  width: 80%;
 }
 nav ul li {
   margin-left: 3%;
@@ -258,7 +326,7 @@ nav ul li {
 }
 nav ul a {
   text-decoration: none;
-  color: rgb(247, 240, 240);
+  color: #fcfffc;
   padding: 0.9%;
 }
 nav ul a:hover {
@@ -277,13 +345,19 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 50%;
-  margin: 1% auto;
+  width: 40rem;
+  margin: 1%;
   border-radius: 10px;
   border: 2px solid rgb(200, 132, 166);
   padding: 1%;
   align-items: center;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+@media (max-width: 776px) {
+  .container-cards__details {
+    flex-direction: column;
+    width: 90%;
+  }
 }
 .container-cards__details .div-img {
   max-width: 50%;
@@ -291,11 +365,17 @@ body {
 .container-cards__details .div-details {
   padding: 3%;
   text-align: justify;
+  min-height: 40%;
+}
+.container-cards__details .div-details .contenedor-botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .container-cards__details .div-details .edit {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -311,12 +391,18 @@ body {
   box-shadow: 2px 1px 12px 3px rgb(135, 223, 135);
 }
 .container-cards__details .div-details .edit:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-cards__details .div-details .edit {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .container-cards__details .div-details .delete {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -333,27 +419,39 @@ body {
   box-shadow: 2px 1px 12px 3px red;
 }
 .container-cards__details .div-details .delete:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-cards__details .div-details .delete {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .container-cards__details .div-details .back {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
   border: 3px solid rgba(172, 161, 161, 0.596);
   border-radius: 8px;
   color: rgb(221, 86, 23);
-  background-color: rgb(247, 240, 240);
+  background-color: #fcfffc;
   text-align: center;
   cursor: pointer;
 }
 .container-cards__details .div-details .back:hover {
-  box-shadow: 2px 1px 12px 3px rgb(247, 240, 240);
+  box-shadow: 2px 1px 12px 3px #fcfffc;
 }
 .container-cards__details .div-details .back:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-cards__details .div-details .back {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .container-cards__details .div-details p {
   margin: 2%;
@@ -385,7 +483,7 @@ body {
 .container-alerts #eliminarAlert #alertCancel {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -401,12 +499,18 @@ body {
   box-shadow: 2px 1px 12px 3px red;
 }
 .container-alerts #eliminarAlert #alertCancel:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-alerts #eliminarAlert #alertCancel {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .container-alerts #eliminarAlert #alertConfirm {
   padding: 0.9em;
   margin: 1em 1em;
-  width: 14%;
+  width: 8em;
   font-family: "Philosopher", sans-serif;
   font-size: 70%;
   font-weight: bold;
@@ -421,7 +525,13 @@ body {
   box-shadow: 2px 1px 12px 3px rgb(135, 223, 135);
 }
 .container-alerts #eliminarAlert #alertConfirm:active {
-  border: 3px inset rgb(247, 240, 240);
+  border: 3px inset #fcfffc;
+}
+@media (max-width: 776px) {
+  .container-alerts #eliminarAlert #alertConfirm {
+    width: 6em;
+    margin: 1%;
+  }
 }
 .container-alerts #editAlert {
   background-color: rgb(135, 223, 135);

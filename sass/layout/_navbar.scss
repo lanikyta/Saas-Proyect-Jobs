@@ -3,14 +3,14 @@ nav{
     @include flex_box($direction: row, $align: left);
     align-items: center;
     box-shadow: 5px 10px 20px $primary--color--light;
-    font-family: 'Macondo', cursive;
+    
     font-size: large;
     img{
         width: 3em;
     }
     ul{
         list-style: none;
-        width: 50%;
+        width: 80%;
         li{
             margin-left: 3%;
             display: inline;

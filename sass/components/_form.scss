@@ -7,13 +7,16 @@
             padding: 0.5em;
             height: 3em;
             margin: 1%;
+            font-family: 'Philosopher', sans-serif;
         }
         label{
-            @extend select;
-            height: 1em;
+            height: 1em; 
+            margin: 1%;
         }
         textarea{
             margin: 1%;
+            padding: 0.5em;
+            font-family: 'Philosopher', sans-serif;
         }
         .btnSubmit{
             @include button($color: $primary--color--light)
@@ -22,4 +25,15 @@
             @include button($color: $danger--color--light)
         }
     }    
+    @media (max-width: 776px){
+        width: 90%;
+        margin: 1% auto;
+        select, input, option{
+            margin-bottom: 3%;
+        }
+        
+        label{
+        margin-bottom: 1rem;
+        }
+    }
 }
