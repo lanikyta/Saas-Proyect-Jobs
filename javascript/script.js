@@ -29,7 +29,7 @@ const createJob = (job)=>{
         },
         body: JSON.stringify(job)
         })
-        .then(res => !res.ok ? showAlert('error') : getJobs())    
+        .then(res => !res.ok ? showAlert('error') : setTimeout(()=>{getJobs()}, 200))    
 }
 
 const editJob = (job)=>{
@@ -47,7 +47,7 @@ const deleteJob = (id)=>{
     fetch(`https://627ab11273bad506858e46a4.mockapi.io/Aylen/jobs/${id}`, {
         method: "DELETE",
     })
-    .then(res => !res.ok ? showAlert('error') : getJobs()) 
+    .then(res => !res.ok ? showAlert('error') : setTimeout(()=>{getJobs()}, 200)) 
 }
 const spinner = ()=>{
     container.innerHTML = `
