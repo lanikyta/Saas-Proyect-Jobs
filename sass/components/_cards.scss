@@ -9,10 +9,10 @@
         align-items: center;
         align-content: space-around;
         width: 20rem;
-        height: 32rem;
+        height: 31rem;
         border-radius: 10px;
         border: 2px solid $secondary--color--dark;
-        margin: 2%;
+        margin: 1%;
         padding: 1%;
         align-content: center;
         background-color: $secondary--color--light;
@@ -27,17 +27,25 @@
             margin: 2%;
         }
         .container-description{
-            overflow-y: auto;
+            /*overflow-y: scroll;
             max-height: 5em;
             p{
             margin: 2%;
             text-align: justify;
             margin-top: 3%;
+            }*/
+            p{
+                text-align: justify;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;  
             }
+            
         }
         p{
-            margin: 3%;
-            margin-top: 10%;
+            margin: 1%;
+            margin-top: 5%;
         }
         span{
             margin: 1%;

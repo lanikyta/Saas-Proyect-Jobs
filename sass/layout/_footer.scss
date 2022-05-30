@@ -5,4 +5,18 @@ footer{
     bottom: 0%;
     box-shadow: 5px -10px 20px $primary--color--light;
     color: $neutral--color;
+    p{ 
+        width: 10rem;
+        a{
+            text-decoration: none;
+            color: $primary--color--light;
+            
+            padding: 1%;
+            &:hover{
+                color: $primary--color--dark;
+                background-color: $primary--color--light;
+                border-radius: 8px;
+            }
+        }
+    }
 }
