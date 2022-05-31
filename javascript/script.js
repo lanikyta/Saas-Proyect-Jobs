@@ -292,24 +292,24 @@ const filtrar = ()=>{
             dataFiltrada = dataFiltrada.filter(job=>job.seniority === queryId('seniorityFilter').value)
             if(queryId('categoryFilter').value !== 'Category'){
                 dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
-                renderCards(dataFiltrada)//renderizar cards con los 3 filtros
-            } else{ renderCards(dataFiltrada) }//Render COUNT y SEN
+                renderCards(dataFiltrada)
+            } else{ renderCards(dataFiltrada) }
         }
         else if(queryId('categoryFilter').value !== 'Category'){
             dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
-            renderCards(dataFiltrada) //render COUNT Y CAT
-        } else { renderCards(dataFiltrada) }//render COUNT
+            renderCards(dataFiltrada)
+        } else { renderCards(dataFiltrada) }
     }
     else if(queryId('seniorityFilter').value !== 'Seniority'){
         dataFiltrada = dataGlobal.filter(job=>job.seniority === queryId('seniorityFilter').value)
         if(queryId('categoryFilter').value !== 'Category'){
             dataFiltrada = dataFiltrada.filter(job=>job.category === queryId('categoryFilter').value)
-            renderCards(dataFiltrada) //RENDER SEN Y CAT
-        } else { renderCards(dataFiltrada) }//RENDER SEN
+            renderCards(dataFiltrada)
+        } else { renderCards(dataFiltrada) }
     } 
     else if(queryId('categoryFilter').value !== 'Category'){
         dataFiltrada = dataGlobal.filter(job=>job.category === queryId('categoryFilter').value)
-        renderCards(dataFiltrada) //RENDER CAT
+        renderCards(dataFiltrada)
     } 
     else{ renderCards(dataGlobal) }
 }
